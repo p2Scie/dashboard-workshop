@@ -13,11 +13,11 @@ const ImpactCarbone = () => {
             const response = await fetch(endpoint)
             const data = await response.json();
 
-            console.log(data[0].emissions.kgco2e)
+            //console.log(data[0].emissions.kgco2e);
         } catch (e) {
             console.log(e)
         }
-    })
+    }, [])
 
     return <div></div>;
 }
