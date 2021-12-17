@@ -16,10 +16,8 @@ const Supabase = ({
         let {data: Student, error} = await supabase
             .from('Student')
             .select('*')
-
         setTotalStudent(Student.length);
         //console.log(Student.length);
-
     })
 
     // recupération du nombre d'élèves par transport
