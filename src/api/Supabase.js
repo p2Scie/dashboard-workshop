@@ -2,8 +2,9 @@ import React, {useState, useEffect} from "react";
 import {createClient} from '@supabase/supabase-js'
 
 const Supabase = ({totalStudent, setTotalStudent, setDataStudent}) => {
-    const supabaseUrl = process.env["REACT_APP_SUPABASE_URL "]
-    const supabaseKey = process.env["REACT_APP_SUPABASE_KEY "]
+
+    const supabaseUrl = '';
+    const supabaseKey = '';
     const supabase = createClient(supabaseUrl, supabaseKey)
 
     useEffect(async () => {
@@ -11,11 +12,9 @@ const Supabase = ({totalStudent, setTotalStudent, setDataStudent}) => {
         let {data: Student, error} = await supabase
             .from('Student')
             .select('*')
-
         setTotalStudent(Student.length);
         console.log(Student.length);
-
-    })
+    }, [])
 
     useEffect(async () => {
         let {data: dataStudent, error} = await supabase
@@ -27,7 +26,7 @@ const Supabase = ({totalStudent, setTotalStudent, setDataStudent}) => {
     )
   `)
         setDataStudent(dataStudent);
-    });
+    }, []);
 
     return <div></div>
 }
